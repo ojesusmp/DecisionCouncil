@@ -1,0 +1,35 @@
+# Release-prep scratch
+.commit-msg-*.tmp
+.commit-msg.tmp
+.release-notes-*.tmp.md
+.release-notes.tmp.md
+
+# Node
+node_modules/
+npm-debug.log*
+*.tgz
+
+# Local harness / state
+.omc/
+.journal/
+.claude/
+
+# Operator feedback
+.usage.log
+
+# Secrets — defense in depth
+.env
+.env.*
+*credentials*
+*secret*
+
+# Logs
+*.log
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/

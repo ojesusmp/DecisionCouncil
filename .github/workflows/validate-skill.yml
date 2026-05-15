@@ -1,0 +1,54 @@
+name: validate-skill
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Required files exist
+        run: |
+          set -e
+          for f in SKILL.md README.md LICENSE CHANGELOG.md package.json install.cjs .claude-plugin/marketplace.json; do
+            if [ ! -f "$f" ]; then
+              echo "MISSING: $f"
+              exit 1
+            fi
+          done
+          echo "All required files present."
+
+      - name: package.json is valid JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"
+
+      - name: marketplace.json is valid JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('.claude-plugin/marketplace.json','utf8'))"
+
+      - name: SKILL.md has YAML frontmatter
+        run: |
+          head -n 1 SKILL.md | grep -q "^---$" || (echo "SKILL.md missing YAML frontmatter" && exit 1)
+          head -n 12 SKILL.md | grep -q "^name:" || (echo "SKILL.md frontmatter missing name:" && exit 1)
+          head -n 12 SKILL.md | grep -q "^description:" || (echo "SKILL.md frontmatter missing description:" && exit 1)
+          head -n 12 SKILL.md | grep -q "^license:" || (echo "SKILL.md frontmatter missing license:" && exit 1)
+
+      - name: install.cjs is valid Node script
+        run: node --check install.cjs
+
+      - name: No accidentally-committed secrets
+        run: |
+          if grep -rE "(api[_-]?key|token|secret|password|bearer)[\"']?\s*[:=]\s*[\"'][^\"']{8,}[\"']" --include="*.md" --include="*.json" --include="*.js" --include="*.cjs" .; then
+            echo "Potential secret detected. Review and remove before merging."
+            exit 1
+          fi
+          echo "No obvious secrets detected."

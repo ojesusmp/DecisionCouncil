@@ -1,0 +1,44 @@
+{
+  "name": "@ojesusmp/decisioncouncil",
+  "version": "1.0.0",
+  "description": "Four-role bounded go/no-go decision skill (Framer, Risk Judge, Operator Advocate, Foreman). Verdicts: PROCEED, FIX FIRST, STOP. Claude Code skill for solo operators and small teams.",
+  "keywords": [
+    "claude-code",
+    "claude-skill",
+    "decision-support",
+    "go-no-go",
+    "solo-operator",
+    "council"
+  ],
+  "homepage": "https://github.com/ojesusmp/DecisionCouncil",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojesusmp/DecisionCouncil.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ojesusmp/DecisionCouncil/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Orlando Molina",
+    "url": "https://github.com/ojesusmp"
+  },
+  "contributors": [
+    {
+      "name": "TruePointAgents",
+      "url": "https://github.com/ojesusmp"
+    }
+  ],
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "install.cjs"
+  ],
+  "scripts": {
+    "postinstall": "node install.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

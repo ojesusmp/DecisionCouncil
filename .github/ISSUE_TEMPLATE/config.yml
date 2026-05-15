@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security issue
+    url: https://github.com/ojesusmp/DecisionCouncil/security/advisories/new
+    about: Report a security vulnerability privately via GitHub's security advisory feature.
+  - name: General question
+    url: https://github.com/ojesusmp/DecisionCouncil/issues/new?labels=question&template=bug_report.md
+    about: For general usage questions, open an issue with the `question` label.

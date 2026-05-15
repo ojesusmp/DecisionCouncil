@@ -1,0 +1,28 @@
+{
+  "name": "decisioncouncil",
+  "owner": {
+    "name": "Orlando Molina",
+    "url": "https://github.com/ojesusmp"
+  },
+  "metadata": {
+    "description": "TruePointAgents marketplace hosting the decisioncouncil Claude Code skill.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "decisioncouncil",
+      "source": ".",
+      "description": "Four-role bounded go/no-go decision skill (Framer, Risk Judge, Operator Advocate, Foreman). Verdicts: PROCEED, FIX FIRST, STOP.",
+      "version": "1.0.0",
+      "category": "decision-support",
+      "tags": ["decision", "go-no-go", "solo-operator", "council", "verdict", "proceed-fix-stop"],
+      "license": "MIT",
+      "homepage": "https://github.com/ojesusmp/DecisionCouncil",
+      "repository": "https://github.com/ojesusmp/DecisionCouncil",
+      "author": {
+        "name": "Orlando Molina",
+        "url": "https://github.com/ojesusmp"
+      }
+    }
+  ]
+}
