@@ -10,7 +10,7 @@
 
 ## Validation
 
-- [ ] Smoke test passes (HostingPR M1 prompt + out-of-scope + UNKNOWN examples).
+- [ ] Smoke test passes (Project M1 prompt + out-of-scope + UNKNOWN examples).
 - [ ] CI passes.
 - [ ] `node --check install.cjs` clean.
 - [ ] `DECISIONCOUNCIL_FORCE_INSTALL=1 node install.cjs` succeeds outside repo.

@@ -3,10 +3,10 @@
 ## Smoke test pattern
 
 ```
-decisioncouncil Evaluate whether Orlando should proceed to build HostingPR M1 now.
-Scope: static homepage, lead form, Telegram notification endpoint, privacy page,
+decisioncouncil Evaluate whether the operator should proceed to build Project M1 now.
+Scope: static homepage, lead form, chat-app notification endpoint, privacy page,
 terms page, mobile-friendly layout, bilingual-ready copy structure, env vars for
-Telegram bot token and chat ID, no AI yet.
+the notification bot token and chat ID, no AI yet.
 OperationsCouncil verdict: FIX FIRST. Missing: runbooks, .env.example, restore docs,
 vendor list, direct-contact fallback.
 ```
@@ -23,14 +23,14 @@ vendor list, direct-contact fallback.
 - [ ] Total output **under 1,200 tokens**.
 - [ ] Critical UNKNOWN, if any, forces FIX FIRST (not PROCEED).
 
-### Expected smoke verdict (HostingPR M1)
+### Expected smoke verdict (Project M1)
 
 - **PROCEED** — Operations' gap list is completable inside the same M1 build cycle (five small text files).
 - Or **FIX FIRST** — only if the council judges the gap list must precede product code as a separate cycle.
 
 **Not acceptable:**
 
-- STOP on HostingPR M1 (M1 is in declared scope and has no irreversibility).
+- STOP on Project M1 (M1 is in declared scope and has no irreversibility).
 - A verdict that asks for AI, database, CRM, analytics, or a new council.
 
 ## JSON validation
@@ -48,7 +48,7 @@ node --check install.cjs
 
 ## Regression before release
 
-1. Smoke test against HostingPR M1.
+1. Smoke test against Project M1.
 2. Smoke test the out-of-scope example (Example 2 in EXAMPLES.md).
 3. Smoke test the UNKNOWN example (Example 3 in EXAMPLES.md).
 4. JSON validation.

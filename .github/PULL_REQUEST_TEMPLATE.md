@@ -14,7 +14,7 @@
 
 ## Verification
 
-- [ ] Smoke test from `docs/TESTING.md` (HostingPR M1 prompt) passes
+- [ ] Smoke test from `docs/TESTING.md` (Project M1 prompt) passes
 - [ ] JSON files validate (`package.json`, `.claude-plugin/marketplace.json`)
 - [ ] `node --check install.cjs` passes
 - [ ] Manual end-to-end invocation produced the expected ten-section output shape

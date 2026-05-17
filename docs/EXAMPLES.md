@@ -1,14 +1,16 @@
 # Examples — DecisionCouncil
 
-## Example 1: HostingPR M1 (canonical smoke test)
+These examples are generic. Substitute your own decision, scope, and facts when invoking the council.
+
+## Example 1: Project M1 launch (canonical smoke test)
 
 **Prompt:**
 
 ```
-Evaluate whether Orlando should proceed to build HostingPR M1 now.
-Scope: static homepage, lead form, Telegram notification endpoint, privacy page,
+Evaluate whether the operator should proceed to build Project M1 now.
+Scope: static homepage, lead form, chat-app notification endpoint, privacy page,
 terms page, mobile-friendly layout, bilingual-ready copy structure, env vars
-for Telegram bot token and chat ID, no AI yet.
+for the notification bot token and chat ID, no AI yet.
 OperationsCouncil verdict: FIX FIRST. Missing: runbooks, .env.example, restore docs,
 vendor list, direct-contact fallback.
 ```
@@ -17,7 +19,7 @@ vendor list, direct-contact fallback.
 
 ```
 1. Decision substrate
-   Proceed to build HostingPR M1 (homepage + lead form + Telegram notify) given
+   Proceed to build Project M1 (homepage + lead form + notification endpoint) given
    OperationsCouncil returned FIX FIRST on operational documents.
 
 2. Options considered
@@ -28,14 +30,14 @@ vendor list, direct-contact fallback.
 3. Constraints
    - Solo operator, evenings, low cash.
    - Time-to-launch is the binding constraint.
-   - Hosting + Telegram bot are the only infra dependencies.
+   - Hosting + notification bot are the only infra dependencies.
 
 4. Explicitly out of scope
    - Checkout, CRM, AI, database, multi-agent, SEO automation,
-     newsletter funnel, Google Maps prospecting, analytics, new council.
+     newsletter funnel, map-based prospecting, analytics, new council.
 
 5. Risk and reversibility
-   - Downside: a lead is missed because Telegram secret is wrong or runbook absent.
+   - Downside: a lead is missed because the notification secret is wrong or runbook absent.
    - Reversibility: high — static site + single endpoint redeploys cheaply.
    - Blast radius: small — no payments, no PII storage beyond a forwarded lead.
 
@@ -50,14 +52,14 @@ vendor list, direct-contact fallback.
 
 8. Minimum required fix list  (carried in from OperationsCouncil)
    - runbooks/  one runbook for deploy, one for incident.
-   - .env.example  TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID placeholders.
+   - .env.example  notification bot token and chat ID placeholders.
    - docs/restore.md  steps to redeploy from git.
-   - docs/vendors.md  hosting, domain, Telegram bot owner.
-   - direct-contact fallback  mailto: link visible if the Telegram endpoint fails.
+   - docs/vendors.md  hosting, domain, notification bot owner.
+   - direct-contact fallback  mailto: link visible if the notification endpoint fails.
 
 9. Smallest next action
    Create the five operational files above as the first commit on the
-   HostingPR repo, then scaffold the static homepage in the same session.
+   project repo, then scaffold the static homepage in the same session.
 
 10. Verdict: PROCEED
     Why: M1 is reversible, scope-locked, and the Operations gap list is
@@ -69,14 +71,14 @@ vendor list, direct-contact fallback.
 **Prompt:**
 
 ```
-Should I add a phone-AI receptionist to HostingPR M1 to qualify leads automatically?
+Should I add a phone-AI receptionist to Project M1 to qualify leads automatically?
 ```
 
 **Council output (compressed):**
 
 ```
 1. Decision substrate
-   Add phone-AI receptionist to HostingPR M1.
+   Add phone-AI receptionist to Project M1.
 
 2. Options considered
    - STOP — out of declared M1 scope and a hard exclusion ("no phone AI", "no AI yet").
@@ -113,7 +115,7 @@ Should I add a phone-AI receptionist to HostingPR M1 to qualify leads automatica
 **Prompt:**
 
 ```
-Should I switch HostingPR's lead notification from Telegram to SMS?
+Should I switch Project M1's lead notification from a chat app to SMS?
 Facts: SMS vendor unknown, cost per message unknown, deliverability unknown.
 ```
 
@@ -121,24 +123,24 @@ Facts: SMS vendor unknown, cost per message unknown, deliverability unknown.
 
 ```
 1. Decision substrate
-   Replace Telegram lead notification with SMS in HostingPR M1.
+   Replace the chat-app lead notification with SMS in Project M1.
 
 2. Options considered
    - PROCEED — pick a vendor, configure, replace endpoint.
    - FIX FIRST — pick vendor + price + deliverability before switching.
-   - STOP — keep Telegram, defer SMS.
+   - STOP — keep the chat-app notification, defer SMS.
 
 3. Constraints
-   M1 already has working Telegram path. Budget low. Time-to-launch binding.
+   M1 already has a working notification path. Budget low. Time-to-launch binding.
 
 4. Explicitly out of scope
    CRM, database, AI.
 
 5. Risk and reversibility
-   Reversible (revert to Telegram), but UNKNOWN vendor = UNKNOWN cost ceiling.
+   Reversible (revert to the chat-app path), but UNKNOWN vendor = UNKNOWN cost ceiling.
 
 6. Delay cost
-   Switching now blocks M1. Keeping Telegram costs zero.
+   Switching now blocks M1. Keeping the current notification costs zero.
 
 7. Operator burden
    Vendor evaluation + API integration + deliverability test = multi-evening.
@@ -146,11 +148,13 @@ Facts: SMS vendor unknown, cost per message unknown, deliverability unknown.
 8. Minimum required fix list
    - Pick SMS vendor.
    - Confirm cost per message.
-   - Confirm US deliverability and rate limits.
+   - Confirm deliverability and rate limits in the target region.
 
 9. Smallest next action
-   Keep Telegram for M1 launch. After launch, run a 1-evening vendor pick + price test.
+   Keep the current notification path for M1 launch. After launch, run a
+   1-evening vendor pick + price test.
 
 10. Verdict: FIX FIRST
-    Why: three critical facts UNKNOWN; switching infra mid-cycle violates time-to-launch constraint.
+    Why: three critical facts UNKNOWN; switching infra mid-cycle violates the
+    time-to-launch constraint.
 ```

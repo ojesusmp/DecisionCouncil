@@ -20,7 +20,7 @@ Thanks for your interest. This document explains how to propose changes, design 
 
 ## How to test changes
 
-- Smoke test in `docs/TESTING.md` (HostingPR M1 prompt is canonical).
+- Smoke test in `docs/TESTING.md` (the Project M1 prompt is canonical).
 - JSON validation of `package.json` and `.claude-plugin/marketplace.json`.
 - `node --check install.cjs`.
 

@@ -11,15 +11,16 @@ Optional follow-up lines: scope, constraints, what is out of scope, known facts,
 ## Example
 
 ```
-decisioncouncil Evaluate whether Orlando should proceed to build HostingPR M1 now.
-Scope: static homepage, lead form, Telegram notification endpoint, privacy page, terms page,
-mobile-friendly layout, bilingual-ready copy structure, env vars for Telegram bot token and chat ID,
-no AI yet.
+decisioncouncil Evaluate whether the operator should proceed to build Project M1 now.
+Scope: static homepage, lead form, chat-app notification endpoint, privacy page, terms page,
+mobile-friendly layout, bilingual-ready copy structure, env vars for the notification bot token
+and chat ID, no AI yet.
 Constraints: solo operator, evenings, low cash, fast time-to-launch.
 Out of scope: checkout, CRM, AI, database, multi-agent, SEO automation, newsletter funnel,
-Google Maps prospecting.
+map-based prospecting.
 Facts: OperationsCouncil verdict = FIX FIRST (missing runbooks, .env.example, restore docs,
 vendor list, direct-contact fallback).
+The notification endpoint forwards leads to a chat app; bot token and chat ID live in env vars.
 ```
 
 ## Output (ten sections)

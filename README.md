@@ -48,7 +48,7 @@ npm install -g @ojesusmp/decisioncouncil
 ## Usage
 
 ```
-decisioncouncil Evaluate whether Orlando should proceed to build HostingPR M1 now.
+decisioncouncil Evaluate whether the operator should proceed to build Project M1 now.
 ```
 
 The council produces a structured ten-section response and emits one verdict — **PROCEED**, **FIX FIRST**, or **STOP**.
