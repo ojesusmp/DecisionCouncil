@@ -14,16 +14,22 @@ Companion to OperationsCouncil. DecisionCouncil decides; OperationsCouncil runs 
 
 ### 1. Claude Code plugin marketplace
 
+Auto-installs the skill — no manual file copying.
+
 ```
 /plugin marketplace add ojesusmp/DecisionCouncil
 /plugin install decisioncouncil@decisioncouncil
 ```
+
+**Verify:** invoke `decisioncouncil` in Claude Code; it responds with the ten-section protocol.
 
 ### 2. Git clone (manual)
 
 ```bash
 git clone https://github.com/ojesusmp/DecisionCouncil.git
 ```
+
+Git does not run install scripts — this step is manual.
 
 POSIX:
 ```bash
@@ -37,11 +43,19 @@ New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills\decisioncou
 Copy-Item "DecisionCouncil\SKILL.md" "$env:USERPROFILE\.claude\skills\decisioncouncil\SKILL.md"
 ```
 
+**Verify:** `sha256sum ~/.claude/skills/decisioncouncil/SKILL.md` matches the repo's `SKILL.md`.
+
 ### 3. npm
 
 ```bash
 npm install -g @ojesusmp/decisioncouncil
 ```
+
+The postinstall script auto-copies `SKILL.md` into `~/.claude/skills/decisioncouncil/` — no manual copy.
+
+> Windows + Node 24 + npm 11 may print `MODULE_NOT_FOUND` and exit 1 even though the postinstall copy succeeded. Verify with the printed SHA-256 or use `npm pack` + local tarball for a clean exit.
+
+**Verify:** the postinstall prints `copied … (sha256=…)`; that hash matches the repo's `SKILL.md`.
 
 ---
 
