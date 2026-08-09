@@ -1,6 +1,6 @@
 ---
 name: decision-council
-description: Bounded go/no-go decision skill for solo operators and small teams. Four roles (Framer, Risk Judge, Operator Advocate, Foreman) produce a structured verdict — PROCEED, FIX FIRST, or STOP — with a smallest concrete next action. Invoke when a defined decision needs a fast, opinionated, hedging-free answer that respects scope and reversibility. Output target under 1,200 tokens.
+description: Bounded go/no-go decision skill for solo operators and small teams. Four roles (Framer, Risk Judge, Operator Advocate, Foreman) produce a structured verdict — PROCEED, FIX FIRST, or STOP — with a smallest concrete next action. Invoke when a defined decision needs a fast, opinionated, hedging-free answer that respects scope and reversibility. Output target under 1,200 tokens. Default council for generic go/no-go; never fires when a domain council's noun or 'c12' was named.
 license: MIT
 ---
 
